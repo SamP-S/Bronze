@@ -1,5 +1,4 @@
-# Internal Tool Website & Automated Email Reminder System
-Django based website for hosting internal tools.
+# Automated Email Reminder System
 Google API based email reminder system. Utilising Google API and OAuth.
 
 ## Requirements
