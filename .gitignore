@@ -1,6 +1,5 @@
 
 # Virtual Environment
-examples/
 venv_*
 
 # Byte-compiled / optimized / DLL files

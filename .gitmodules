@@ -1,0 +1,3 @@
+[submodule "examples/django-funky-sheets"]
+	path = examples/django-funky-sheets
+	url = git@github.com:trco/django-funky-sheets.git
