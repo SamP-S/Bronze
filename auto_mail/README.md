@@ -1,4 +1,4 @@
-# Automated Email Reminder System
+# [[<-]](../README.md) Automated Email Reminder System
 Google API based email reminder system. Utilising Google API and OAuth.
 
 ## Requirements

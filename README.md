@@ -1,22 +1,6 @@
-# Internal Tool Website & Automated Email Reminder System
-Django based website for hosting internal tools.
-Google API based email reminder system. Utilising Google API and OAuth.
+# Complete Collection of Internal Tools for SCS
 
-## Requirements
-Install the dependencies using requirements.txt
-``` bash
-python -m pip install -r "requirements.txt"
-```
-Download client OAuth as "credentials.json" from [Google Cloud Console](https://console.cloud.google.com/apis/credentials). Then run python script to get authorize the google account to be used with the OAuth to allow the software to use the given account through the Gmail api. Do **NOT** delete the "tokens.json" or "credentials.json" from local and do **NOT** push these files to github.
-``` bash
-python quickstart.py"
-```
-
-## Summary
-Wraps the Google API for Gmail and Sheets as a single interface.
-
-
-<!-- ## Environment Variables
-To run this project, you will need to add the following environment variables to your .env file <br/>
-`AUTO_EMAIL`
-`AUTO_PASSWORD` -->
+## List of Projects:
+1. [Auto Mailer](auto_mail/README.md)
+2. [Django Rock](django_rock/README.md)
+   
