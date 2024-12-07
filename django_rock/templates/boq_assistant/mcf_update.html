@@ -5,7 +5,11 @@ MaxCut File Upload Edit
 {% endblock %}
 
 {% block content %}
-<center>
-    CONTENT
-</center>
-{% endblock %}
+    <h2>Update MCF</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
+    <a href="{% url 'mcf_list' %}">Cancel</a>
+{% endblock content %}
