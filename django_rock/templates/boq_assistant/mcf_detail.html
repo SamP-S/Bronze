@@ -5,7 +5,14 @@ MaxCut File Upload Detail
 {% endblock %}
 
 {% block content %}
-<center>
-    CONTENT
-</center>
-{% endblock %}
+<h1>MCF Detail</h1>
+
+<p><strong>MC File:</strong> {{ object.mc_file.url }}</p>
+<p><strong>Upload DateTime:</strong> {{ object.datetime }}</p>
+<p><strong>Message:</strong> {{ object.msg }}</p>
+<p><strong>Generated File:</strong> <a href="{{ object.gen_file.url }}">Download</a></p>
+
+<a href="{% url 'mcf_list' %}">Back to list</a>
+<a href="{% url 'mcf_update' object.pk %}">Edit</a>
+<a href="{% url 'mcf_delete' object.pk %}">Delete</a>
+{% endblock content %}
