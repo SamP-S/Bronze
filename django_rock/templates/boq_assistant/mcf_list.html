@@ -5,3 +5,37 @@
     CONTENT
 </center>
 {% endblock %}
+{% block content %}
+<center>
+    <h1>MCF List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>MC File</th>
+                <th>Upload Date</th>
+                <th>Message</th>
+                <th>Generated File</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mcf in mcf %}
+            <tr>
+                <td>{{ mcf.id }}</td>
+                <td>{{ mcf.mc_file.name }}</td>
+                <td>{{ mcf.datetime }}</td>
+                <td>{{ mcf.msg }}</td>
+                <td>{{ mcf.gen_file.name }}</td>
+                <td>
+                    <a href="{% url 'mcf_detail' mcf.id %}">View</a>
+                    <a href="{% url 'mcf_update' mcf.id %}">Edit</a>
+                    <a href="{% url 'mcf_delete' mcf.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'mcf_create' %}">Add New MCF</a>
+</center>
+{% endblock %}
