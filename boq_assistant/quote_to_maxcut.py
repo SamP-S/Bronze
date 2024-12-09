@@ -4,8 +4,6 @@ import numpy as np
 import argparse
 import csv
 
-# "C:\Users\Sam\OneDrive - South Coast Stone\Documents\Sam 43 Orchard Court\43 Orchard Court Complete Quote.xlsx"
-
 parser = argparse.ArgumentParser(
     prog="scs_quote_to_maxcut",
     description="convert quote sheet from .xlsx to maxcut .csv"
