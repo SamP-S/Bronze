@@ -38,15 +38,27 @@ def maxcut_to_quote(input_path, output_path):
     # attempt to load csv
     df = None
     try:
-        df = pd.read_csv(args.filepath)
+        # read first line to get delimiter
+        with open(input_path, 'r') as file:
+            sep = file.readline().strip().split('=')[1]
+        df = pd.read_csv(input_path, sep=sep, skiprows=1)
     except Exception as err:
         return f"ERROR: Couldn't open file.\n{input_path}\n {err}\nPlease close the file if you have it opened in excel."
     
+    # parse df
+    ### TODO: condider other columns to include/use for categorization/subcategorization for generating main stone sheet
+    ### TODO: currently skipping grouping & edging atm edge_N, Import ID, Parent ID
+    print(df.columns)
+    df = df[["Type", "Name", "Length", "Width", "Quantity", "Notes", "Material"]]
+    df = df[~df["Type"].isin(["Input Labour", "Input Hardware", "Input Edging", "Input Group"])]
+
+    # convert dimension strings to floats
+    df["Length"] = (df["Length"].str[:-3]).astype(float)
+    df["Width"] = (df["Width"].str[:-3]).astype(float)
+    # replace NaN notes with empty string
+    df["Notes"] = df["Notes"].fillna("")
     
-    print(df.head(10))
-    template_sheets = get_template_sheets()
-    
-    ### CONTINUE:
+    materials = df["Material"].unique()
 
 
 ### IMPORTANT IMPLEMENTATION NOTES:
