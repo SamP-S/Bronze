@@ -7,10 +7,9 @@ class MCFForm(forms.ModelForm):
         
         # reference python variable names
         fields = [
+            "name",
+            "notes",
             "mc_file",
-            "datetime",
-            "msg",
-            "gen_file"
         ]
         
         # widgets = {

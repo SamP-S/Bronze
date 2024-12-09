@@ -18,13 +18,14 @@
             {% for mcf in mcf %}
             <tr>
                 <td>{{ mcf.id }}</td>
+                <td>{{ mcf.name }}</td>
+                <td>{{ mcf.notes }}</td>
                 <td>{{ mcf.mc_file.name }}</td>
                 <td>{{ mcf.datetime }}</td>
-                <td>{{ mcf.msg }}</td>
+                <td>{{ mcf.warnings }}</td>
                 <td>{{ mcf.gen_file.name }}</td>
                 <td>
                     <a href="{% url 'mcf_detail' mcf.id %}">View</a>
-                    <a href="{% url 'mcf_update' mcf.id %}">Edit</a>
                     <a href="{% url 'mcf_delete' mcf.id %}">Delete</a>
                 </td>
             </tr>

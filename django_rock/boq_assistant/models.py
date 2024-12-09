@@ -1,13 +1,21 @@
 from django.db import models
+from django import forms
+
+def validate_file_is_csv(value):
+    if not value.name.endswith(".csv"):
+        raise forms.ValidationError("File type not supported")
 
 class MCFModel(models.Model):
-    mc_file = models.FileField("maxcut_file")
-    datetime = models.DateTimeField("upload_datetime")
-    msg = models.TextField("generator_message")
+    # user upload
+    name = models.CharField("name", max_length=255, default="Unnamed")
+    notes = models.TextField("notes", default="")
+    mc_file = models.FileField("maxcut_file", validators=[validate_file_is_csv])
+    
+    # auto generated
+    datetime = models.DateTimeField("upload_datetime", auto_now=True)
+    warnings = models.TextField("generator_message", default="")
     gen_file = models.FileField("generated_file")
     
-# class QuoteFileModel(models.Model):
-#     quote_file = models.FileField("quote_file")
-#     date = models.DateTimeField("upload_datetime")
-#     gen_file = models.FileField("generated_file")
+    class Meta:
+        ordering = ["-datetime"]
     
