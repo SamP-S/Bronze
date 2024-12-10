@@ -56,9 +56,19 @@ except Exception as err:
 # pass None to load all sheets
 sheets = pd.read_excel(xl, sheet_name=None)
 print(f"INFO: sheets: {sheets.keys()}")
-sheets.pop("Quote", None)
-sheets.pop("Allowances", None)
-sheets.pop("Front Cover", None)
+ignore_sheets = [
+    "Front Cover",
+    "Allowances",
+    "Quote",
+    "Tiling",
+    "Stone",
+    "Cover Sheet",
+]
+for sheet in ignore_sheets:
+    if sheet in sheets:
+        print(f"INFO: Ignoring sheet '{sheet}'. Skipping...")
+        del sheets[sheet]
+
 
 # parse dataframe to maxcut csv
 def qto_to_maxcut_csv(df, output_path):
