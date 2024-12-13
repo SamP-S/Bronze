@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Quote Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Contact Name</th>
+                <th>Contact Email</th>
+                <th>Date In</th>
+                <th>Contact Phone</th>
+                <th>Date Close</th>
+                <th>Date Sent</th>
+                <th>Project Address</th>
+                <th>Project Postcode</th>
+                <th>Project In London</th>
+                <th>Project Work Type</th>
+                <th>Project Value</th>
+                <th>Project Contract Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quote in quotes %}
+                <tr>
+                    <td>{{ quote.company }}</td>
+                    <td>{{ quote.contact_name }}</td>
+                    <td>{{ quote.contact_email }}</td>
+                    <td>{{ quote.date_in }}</td>
+                    <td>{{ quote.contact_phone|default_if_none:"" }}</td>
+                    <td>{{ quote.date_close }}</td>
+                    <td>{{ quote.date_sent|default_if_none:"" }}</td>
+                    <td>{{ quote.project.address|default_if_none:"" }}</td>
+                    <td>{{ quote.project.postcode|default_if_none:"" }}</td>
+                    <td>{{ quote.project.in_london|yesno:"Yes,No" }}</td>
+                    <td>{{ quote.project.get_work_type_display|default_if_none:"" }}</td>
+                    <td>{{ quote.project.value|default_if_none:"" }}</td>
+                    <td>{{ quote.project.get_contract_type_display|default_if_none:"" }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
