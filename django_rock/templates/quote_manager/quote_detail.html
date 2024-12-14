@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Quote Detail</h1>
+    <table>
+        <tr>
+            <th>Company</th>
+            <td>{{ quote.company }}</td>
+        </tr>
+        <tr>
+            <th>Contact Name</th>
+            <td>{{ quote.contact_name }}</td>
+        </tr>
+        <tr>
+            <th>Contact Email</th>
+            <td>{{ quote.contact_email }}</td>
+        </tr>
+        <tr>
+            <th>Date In</th>
+            <td>{{ quote.date_in }}</td>
+        </tr>
+        <tr>
+            <th>Contact Phone</th>
+            <td>{{ quote.contact_phone|default_if_none:"" }}</td>
+        </tr>
+        <tr>
+            <th>Date Close</th>
+            <td>{{ quote.date_close }}</td>
+        </tr>
+        <tr>
+            <th>Date Sent</th>
+            <td>{{ quote.date_sent|default_if_none:"" }}</td>
+        </tr>
+        <tr>
+            <th>Project Address</th>
+            <td>{{ quote.project.address|default_if_none:"" }}</td>
+        </tr>
+        <tr>
+            <th>Project Postcode</th>
+            <td>{{ quote.project.postcode|default_if_none:"" }}</td>
+        </tr>
+        <tr>
+            <th>Project In London</th>
+            <td>{{ quote.project.in_london|yesno:"Yes,No" }}</td>
+        </tr>
+        <tr>
+            <th>Project Work Type</th>
+            <td>{{ quote.project.get_work_type_display|default_if_none:"" }}</td>
+        </tr>
+        <tr>
+            <th>Project Value</th>
+            <td>{{ quote.project.value|default_if_none:"" }}</td>
+        </tr>
+        <tr>
+            <th>Project Contract Type</th>
+            <td>{{ quote.project.get_contract_type_display|default_if_none:"" }}</td>
+        </tr>
+    </table>
+    <a href="{% url 'quote_manager:quote_list' %}">Back to Quote List</a>
+{% endblock %}
