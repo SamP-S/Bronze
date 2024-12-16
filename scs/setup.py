@@ -19,6 +19,8 @@ setup(
     ],
     keywords=["scs", "tools"],
     packages=find_packages(),
-    python_requires=">=3.12"
-    # install_requires=[],
+    python_requires=">=3.12",
+    install_requires=["pandas", "openpyxl", "numpy", "python-dotenv",
+        "google-api-python-client", "google-auth-httplib2", "google-auth-oauthlib",
+    ],
 )
