@@ -7,9 +7,9 @@ class MCFForm(forms.ModelForm):
         
         # reference python variable names
         fields = [
-            "name",
-            "notes",
             "mc_file",
+            "name",
+            "notes", 
         ]
         
         # widgets = {
@@ -24,9 +24,9 @@ class QFForm(forms.ModelForm):
         
         # reference python variable names
         fields = [
+            "q_file",
             "name",
             "notes",
-            "q_file",
         ]
         
         # widgets = {

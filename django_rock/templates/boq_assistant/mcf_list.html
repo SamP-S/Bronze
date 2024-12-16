@@ -7,25 +7,26 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>MC File</th>
+                <th>MaxCut File</th>
+                <th>Notes</th>
                 <th>Upload Date</th>
-                <th>Message</th>
+                <th>Warnings</th>
                 <th>Generated File</th>
-                <th>Actions</th>
+                <th>Download</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             {% for mcf in mcf %}
             <tr>
                 <td>{{ mcf.id }}</td>
-                <td>{{ mcf.name }}</td>
-                <td>{{ mcf.notes }}</td>
                 <td>{{ mcf.mc_file.name }}</td>
-                <td>{{ mcf.datetime }}</td>
+                <td>{{ mcf.notes }}</td>
+                <td>{{ mcf.created_at }}</td>
                 <td>{{ mcf.warnings }}</td>
                 <td>{{ mcf.gen_file.name }}</td>
+                <td><a href="{{ mcf.gen_file.url }}" download="mcf.gen_file">Download</a></td>
                 <td>
-                    <a href="{% url 'mcf_detail' mcf.id %}">View</a>
                     <a href="{% url 'mcf_delete' mcf.id %}">Delete</a>
                 </td>
             </tr>

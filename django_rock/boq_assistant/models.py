@@ -13,7 +13,7 @@ def validate_file_is_excel(value):
 class MCFModel(models.Model):
     # user upload
     name = models.CharField("name", max_length=255, default="Unnamed")
-    notes = models.TextField("notes", default="")
+    notes = models.TextField("notes", default="", blank=True, null=False)
     mc_file = models.FileField("maxcut_file", validators=[validate_file_is_csv])
     
     # auto generated
@@ -27,7 +27,7 @@ class MCFModel(models.Model):
 class QFModel(models.Model):
     # user upload
     name = models.CharField("name", max_length=255, default="Unnamed")
-    notes = models.TextField("notes", default="")
+    notes = models.TextField("notes", default="", blank=True, null=False)
     q_file = models.FileField("quote_file", validators=[validate_file_is_excel])
     
     # auto generated
