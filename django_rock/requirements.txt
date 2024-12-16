@@ -1,0 +1,4 @@
+Django
+django-extra-views
+django-funky-sheets
+-e ../scs
