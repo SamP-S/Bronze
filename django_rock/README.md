@@ -16,6 +16,12 @@ An internal website to manage quote requests from clients, send reminders to rep
 7. New page per year
 8. Allow create, edit and delete contracts
 9. Support various summary creation.
+10. 
+## Todo
+
+- Converge file converters to single pages
+- Merge file converters into single autodetecting converter
+
 
 ## Usage
 Install the dependencies using requirements.txt
