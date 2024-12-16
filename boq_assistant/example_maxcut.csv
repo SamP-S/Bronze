@@ -1,0 +1,26 @@
+Type,Name,Length,Width,Quantity,Notes,Can Rotate (0 = No / 1 = Yes / 2 = Same As Material),Material,Edging Length 1,Edging Length 2,Edging Width 1,Edging Width 2,Include Edging Thickness,Note 1,Note 2,Note 3,Note 4,Group,Report Tags,Import ID,Parent ID,Library Item Name,Holes Length 1,Holes Length 2,Holes Width 1,Holes Width 2,Grooving Length 1,Grooving Length 2,Grooving Width 1,Grooving Width 2,Material Tag,Edging Length 1 Tag,Edging Length 2 Tag,Edging Width 1 Tag,Edging Width 2 Tag,Apply Machining Charge,Long Expansion,Short Expansion
+Input Group,Box,,,1,,,,,,,,,,,,,,,1,1,,,,,,,,,,,,,,,,,
+Input Panel,Main,600 mm,400 mm,2,,IfNoGrain,Marble,White Example Edging,White Example Edging,White Example Edging,White Example Edging,FALSE,,,,,,,2,1,,,,,,,,,,,,,,,,0,0
+Input Panel,Side,600 mm,200 mm,2,,IfNoGrain,Marble,Grain Example Edging,Grain Example Edging,Grain Example Edging,Grain Example Edging,FALSE,,,,,,,3,1,,,,,,,,,,,,,,,,0,0
+Input Panel,Base,400 mm,200 mm,1,,IfNoGrain,Marble,Colour Example Edging,Colour Example Edging,Colour Example Edging,Colour Example Edging,FALSE,,,,,,,4,1,,,,,,,,,,,,,,,,0,0
+Input Hardware,Hinge,,,2,,,Hinge Example Item,,,,,,,,,,,,5,1,,,,,,,,,,,,,,,,,
+Input Hardware,Handle,,,1,,,Handle Example Item ,,,,,,,,,,,,6,1,,,,,,,,,,,,,,,,,
+Input Labour,Assembly,,,1,,,Assembly,,,,,,,,,,,,7,1,,,,,,,,,,,,,,,,,
+Input Edging,Bezier,10 mm,,1,,,White Example Edging,,,,,,,,,,,,8,1,,,,,,,,,,,,,,,FALSE,,
+Input Group,FC90,,,1,,,,,,,,,,,,,,,9,9,,,,,,,,,,,,,,,,,
+Input Panel,Door Panel - Standard Edging,716 mm,320 mm,1,,No,Granite,Grain Example Edging,Grain Example Edging,Grain Example Edging,Grain Example Edging,FALSE,,,,,,'Door',10,9,,,,,,,,,,Door - Melamine - Materials,Door - Melamine - Edging - Squareline,Door - Melamine - Edging - Squareline,Door - Melamine - Edging - Squareline,Door - Melamine - Edging - Squareline,,0,0
+Input Panel,Door Panel - Standard Edging,716 mm,333 mm,1,,No,Granite,Grain Example Edging,Grain Example Edging,Grain Example Edging,Grain Example Edging,FALSE,,,,,,'Door',11,9,,,,,,,,,,Door - Melamine - Materials,Door - Melamine - Edging - Squareline,Door - Melamine - Edging - Squareline,Door - Melamine - Edging - Squareline,Door - Melamine - Edging - Squareline,,0,0
+Input Hardware,8x16 Screw,,,28,,,Screw Example 8x16,,,,,,,,,,,"'Hardware , Carcase'",12,9,,,,,,,,,,,,,,,,,
+Input Hardware,Handle,,,1,,,Handle Example Item ,,,,,,,,,,,"'Hardware , Handles'",13,9,,,,,,,,,,Hardware - Handles,,,,,,,
+Input Hardware,Hinges - 170',,,4,,,Hinge Example Item,,,,,,,,,,,"'Hardware , Hinges'",14,9,,,,,,,,,,Hinge - Selection - 170,,,,,,,
+Input Hardware,Leg,,,7,,,Leg Example Item,,,,,,,,,,,"'Hardware , Carcase'",15,9,,,,,,,,,,Hardware - Legs,,,,,,,
+Input Hardware,Screws 8x30,,,4,,,Screw Example 8x30,,,,,,,,,,,"'Hardware , Carcase'",16,9,,,,,,,,,,,,,,,,,
+Input Hardware,Shelf Stud,,,8,,,Shelf Stud Example Item,,,,,,,,,,,"'Hardware , Internals , Supports'",17,9,,,,,,,,,,,,,,,,,
+Input Hardware,Wall Anchor,,,2,,,Wall Anchor Example Item,,,,,,,,,,,"'Carcase , Hardware'",18,9,,,,,,,,,,,,,,,,,
+Input Panel,Backing - Left,868 mm,688 mm,1,,IfNoGrain,Granite,,,,,FALSE,,,,,,"'Carcase , Board'",19,9,,,,,,,,,,Carcase Material - Concealed,,,,,,0,0
+Input Panel,Backing - Right,851 mm,688 mm,1,,IfNoGrain,Granite,,,,,FALSE,,,,,,"'Carcase , Board'",20,9,,,,,,,,,,Carcase Material - Concealed,,,,,,0,0
+Input Panel,Base,868 mm,868 mm,1,,IfNoGrain,Granite,,,,,FALSE,,,,,,"'Carcase , Board'",21,9,,,,,,,,,,Carcase Material - Concealed,,,,,,0,0
+Input Panel,Recessed Shelf,851 mm,851 mm,1,,IfNoGrain,Granite,,,,,FALSE,,,,,,"'Board , Internal'",22,9,,,,,,,,,,Carcase Material - Concealed,,,,,,0,0
+Input Panel,Side-Left,720 mm,558 mm,1,,IfNoGrain,Granite,Grain Example Edging,,,,FALSE,,,,,,"'Carcase , Board'",23,9,,,,,,,,,,Carcase Material - Concealed,Edging Material - Exposed,Edging Material - Exposed,Edging Material - Exposed,Edging Material - Exposed,,0,0
+Input Panel,Side-Right,720 mm,558 mm,1,,IfNoGrain,Granite,Grain Example Edging,,,,FALSE,,,,,,"'Carcase , Board'",24,9,,,,,,,,,,Carcase Material - Concealed,Edging Material - Exposed,Edging Material - Exposed,Edging Material - Exposed,Edging Material - Exposed,,0,0
+Input Panel,Top Shelf,868 mm,868 mm,1,,IfNoGrain,Granite,,,,,FALSE,,,,,,"'Carcase , Board'",25,9,,,,,,,,,,Carcase Material - Concealed,,,,,,0,0

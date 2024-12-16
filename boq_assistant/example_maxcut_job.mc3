@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MaxCut Version="2.9.2.0">
+  <JobDetails>
+    <ClientName></ClientName>
+    <ClientFax></ClientFax>
+    <ClientCell></ClientCell>
+    <ClientEmail></ClientEmail>
+    <ClientAddress></ClientAddress>
+    <JobDateRequired>2024-11-25T00:00:00+00:00</JobDateRequired>
+    <JobNotes></JobNotes>
+    <JobReference></JobReference>
+    <JobCode></JobCode>
+    <QuoteNumber></QuoteNumber>
+    <InvoiceNumber></InvoiceNumber>
+    <DeliveryAddress1></DeliveryAddress1>
+    <DeliveryAddress2></DeliveryAddress2>
+    <DeliveryAreaName></DeliveryAreaName>
+    <DeliveryAreaCode></DeliveryAreaCode>
+    <DeliveryProvince></DeliveryProvince>
+    <DeliveryCountry></DeliveryCountry>
+    <DeliveryGPSCoord></DeliveryGPSCoord>
+    <DeliveryCharge>0</DeliveryCharge>
+    <ClientPhone></ClientPhone>
+    <ClientVatNumber></ClientVatNumber>
+    <SelectedCustomerUid></SelectedCustomerUid>
+    <IsOptimizationDirty>true</IsOptimizationDirty>
+    <Seed>1144413847</Seed>
+    <Id>94707142-a9c1-4efa-962a-39df82b6b504</Id>
+    <BinPackingResultIndex>0</BinPackingResultIndex>
+    <SelectedTab>Input Items</SelectedTab>
+  </JobDetails>
+  <InputItems>
+    <InputItem Type="Input Group">
+      <InputItemGroup JobItemType="Group">
+        <UID>4edc68d9-dc68-4f3a-b88a-275d8ebe9493</UID>
+        <Name>Box</Name>
+        <Notes></Notes>
+        <Quantity>1</Quantity>
+        <UseForDescendantGroupName>false</UseForDescendantGroupName>
+        <ImportCode></ImportCode>
+        <Level>Parent</Level>
+      </InputItemGroup>
+      <ChildItems>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>1c8ec79d-90aa-44d7-94d9-e6ec4ff12fd7</UID>
+            <Name>Main</Name>
+            <Width>400</Width>
+            <Height>600</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>600 mm x 400 mm</Dimensions>
+            <Quantity>2</Quantity>
+            <EdgeLength1MaterialUID>d2f9c60a-ca15-449a-94c8-25b037e6dd1b</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID>d2f9c60a-ca15-449a-94c8-25b037e6dd1b</EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID>d2f9c60a-ca15-449a-94c8-25b037e6dd1b</EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID>d2f9c60a-ca15-449a-94c8-25b037e6dd1b</EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>White Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName>White Example Edging</LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName>White Example Edging</LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName>White Example Edging</LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags></ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag></MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>af9a022e-8b9e-4c9f-9eee-c2aa330a79a1</UID>
+            <Name>Side</Name>
+            <Width>200</Width>
+            <Height>600</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>600 mm x 200 mm</Dimensions>
+            <Quantity>2</Quantity>
+            <EdgeLength1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>Grain Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName>Grain Example Edging</LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName>Grain Example Edging</LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName>Grain Example Edging</LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags></ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag></MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>1d3436be-9189-4c23-ad16-a725b06aaca1</UID>
+            <Name>Base</Name>
+            <Width>200</Width>
+            <Height>400</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>400 mm x 200 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID>c25b5402-c43e-48fb-b243-89a588efa0d3</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID>c25b5402-c43e-48fb-b243-89a588efa0d3</EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID>c25b5402-c43e-48fb-b243-89a588efa0d3</EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID>c25b5402-c43e-48fb-b243-89a588efa0d3</EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>Colour Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName>Colour Example Edging</LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName>Colour Example Edging</LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName>Colour Example Edging</LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags></ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag></MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>64420597-be90-45a5-a55c-a3b6046859ed</UID>
+            <Name>Hinge</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>2</Quantity>
+            <Notes></Notes>
+            <MaterialUID>4e8ff123-9e43-4b75-9ca0-af3f579ef784</MaterialUID>
+            <LastSavedMaterialName>Hinge Example Item</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags></ReportTags>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>50ead50f-f3eb-4153-92f0-aff7343132d7</UID>
+            <Name>Handle</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>1</Quantity>
+            <Notes></Notes>
+            <MaterialUID>5313bc62-d064-4a87-9da6-87241c861184</MaterialUID>
+            <LastSavedMaterialName>Handle Example Item </LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags></ReportTags>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Labour">
+          <OptimizationInputPiece JobItemType="Labour">
+            <UID>c918a411-9166-4cae-a5d8-4179a446df7c</UID>
+            <Name>Assembly</Name>
+            <Quantity>1</Quantity>
+            <Notes></Notes>
+            <MaterialUID>2f66c1d2-cc39-4bd2-beb9-5bb8811d33cf</MaterialUID>
+            <LastSavedMaterialName>Assembly</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Edging">
+          <OptimizationInputPiece JobItemType="Edging">
+            <UID>c642411c-cf06-478f-8160-3d06c749a320</UID>
+            <Name>Bezier</Name>
+            <Length>10</Length>
+            <Quantity>1</Quantity>
+            <Notes></Notes>
+            <MaterialUID>d2f9c60a-ca15-449a-94c8-25b037e6dd1b</MaterialUID>
+            <LastSavedMaterialName>White Example Edging</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags></ReportTags>
+            <MaterialTag></MaterialTag>
+            <ApplyMachiningCharge>false</ApplyMachiningCharge>
+          </OptimizationInputPiece>
+        </InputItem>
+      </ChildItems>
+    </InputItem>
+    <InputItem Type="Input Group">
+      <InputItemGroup JobItemType="Group">
+        <UID>6372ebfb-8c16-497b-b11f-ec408a67e902</UID>
+        <Name>FC90</Name>
+        <Notes></Notes>
+        <Quantity>1</Quantity>
+        <UseForDescendantGroupName>false</UseForDescendantGroupName>
+        <ImportCode></ImportCode>
+        <Level>Parent</Level>
+      </InputItemGroup>
+      <ChildItems>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>4f52b047-3c48-48c3-8c63-b2a21b3b6a99</UID>
+            <Name>Door Panel - Standard Edging</Name>
+            <Width>320</Width>
+            <Height>716</Height>
+            <CanRotate>0</CanRotate>
+            <Dimensions>716 mm x 320 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>Grain Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName>Grain Example Edging</LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName>Grain Example Edging</LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName>Grain Example Edging</LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Door</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Door - Melamine - Materials</MaterialTag>
+            <EdgingLength1Tag>Door - Melamine - Edging - Squareline</EdgingLength1Tag>
+            <EdgingLength2Tag>Door - Melamine - Edging - Squareline</EdgingLength2Tag>
+            <EdgingWidth1Tag>Door - Melamine - Edging - Squareline</EdgingWidth1Tag>
+            <EdgingWidth2Tag>Door - Melamine - Edging - Squareline</EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>c631b49f-a184-45e7-8ae1-91b0e57546a0</UID>
+            <Name>Door Panel - Standard Edging</Name>
+            <Width>333</Width>
+            <Height>716</Height>
+            <CanRotate>0</CanRotate>
+            <Dimensions>716 mm x 333 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>Grain Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName>Grain Example Edging</LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName>Grain Example Edging</LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName>Grain Example Edging</LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Door</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Door - Melamine - Materials</MaterialTag>
+            <EdgingLength1Tag>Door - Melamine - Edging - Squareline</EdgingLength1Tag>
+            <EdgingLength2Tag>Door - Melamine - Edging - Squareline</EdgingLength2Tag>
+            <EdgingWidth1Tag>Door - Melamine - Edging - Squareline</EdgingWidth1Tag>
+            <EdgingWidth2Tag>Door - Melamine - Edging - Squareline</EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>06e35b56-57ec-4edc-9055-bbf47ac1db94</UID>
+            <Name>8x16 Screw</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>28</Quantity>
+            <Notes></Notes>
+            <MaterialUID>b26d2ba5-e80e-45b7-bde0-62257f786b2e</MaterialUID>
+            <LastSavedMaterialName>Screw Example 8x16</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Hardware , Carcase</ReportTags>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>a1502f02-e825-4866-b21b-3e0da6a05ba3</UID>
+            <Name>Handle</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>1</Quantity>
+            <Notes></Notes>
+            <MaterialUID>5313bc62-d064-4a87-9da6-87241c861184</MaterialUID>
+            <LastSavedMaterialName>Handle Example Item </LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Hardware , Handles</ReportTags>
+            <MaterialTag>Hardware - Handles</MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>17e750ce-3b7c-4cbb-be62-5efe8c61a733</UID>
+            <Name>Hinges - 170'</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>4</Quantity>
+            <Notes></Notes>
+            <MaterialUID>4e8ff123-9e43-4b75-9ca0-af3f579ef784</MaterialUID>
+            <LastSavedMaterialName>Hinge Example Item</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Hardware , Hinges</ReportTags>
+            <MaterialTag>Hinge - Selection - 170</MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>25893c2e-13ae-4ae9-a2c8-de5f97fb7d13</UID>
+            <Name>Leg</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>7</Quantity>
+            <Notes></Notes>
+            <MaterialUID>d158458a-7896-44b8-a698-ddaba6fe9ea6</MaterialUID>
+            <LastSavedMaterialName>Leg Example Item</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Hardware , Carcase</ReportTags>
+            <MaterialTag>Hardware - Legs</MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>a6476cd1-6e78-442e-8c2e-a5f33be321e7</UID>
+            <Name>Screws 8x30</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>4</Quantity>
+            <Notes></Notes>
+            <MaterialUID>831a3f73-2b8f-4121-ae07-06145577d1e7</MaterialUID>
+            <LastSavedMaterialName>Screw Example 8x30</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Hardware , Carcase</ReportTags>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>d9036eee-019f-4136-b05c-dff7ff2d9a72</UID>
+            <Name>Shelf Stud</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>8</Quantity>
+            <Notes></Notes>
+            <MaterialUID>76976199-63f6-47b9-b76b-256e1d9d1491</MaterialUID>
+            <LastSavedMaterialName>Shelf Stud Example Item</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Hardware , Internals , Supports</ReportTags>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Hardware">
+          <OptimizationInputPiece JobItemType="Hardware">
+            <UID>31f46348-4b60-4b36-83f1-0474db378bc7</UID>
+            <Name>Wall Anchor</Name>
+            <Dimensions>-</Dimensions>
+            <Quantity>2</Quantity>
+            <Notes></Notes>
+            <MaterialUID>1f05f796-34cc-4783-8b5f-1ccca3d580a6</MaterialUID>
+            <LastSavedMaterialName>Wall Anchor Example Item</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <Level>Child</Level>
+            <ReportTags>Carcase , Hardware</ReportTags>
+            <MaterialTag></MaterialTag>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>0eae50f5-afbc-42f2-8803-533fa84679c8</UID>
+            <Name>Backing - Left</Name>
+            <Width>688</Width>
+            <Height>868</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>868 mm x 688 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID></EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName></LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Carcase , Board</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>53730119-e706-4079-abf1-ae6472b81dca</UID>
+            <Name>Backing - Right</Name>
+            <Width>688</Width>
+            <Height>851</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>851 mm x 688 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID></EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName></LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Carcase , Board</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>375099d6-df11-4b37-9be8-f43afacf8755</UID>
+            <Name>Base</Name>
+            <Width>868</Width>
+            <Height>868</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>868 mm x 868 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID></EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName></LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Carcase , Board</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>63f44faf-1630-471f-a716-e316402dc7b7</UID>
+            <Name>Recessed Shelf</Name>
+            <Width>851</Width>
+            <Height>851</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>851 mm x 851 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID></EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName></LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Board , Internal</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>6423a125-5cdd-499f-ae3a-6b8102642cdc</UID>
+            <Name>Side-Left</Name>
+            <Width>558</Width>
+            <Height>720</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>720 mm x 558 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>Grain Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Carcase , Board</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag>Edging Material - Exposed</EdgingLength1Tag>
+            <EdgingLength2Tag>Edging Material - Exposed</EdgingLength2Tag>
+            <EdgingWidth1Tag>Edging Material - Exposed</EdgingWidth1Tag>
+            <EdgingWidth2Tag>Edging Material - Exposed</EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>124f51a2-1818-4777-821f-156cf57faedb</UID>
+            <Name>Side-Right</Name>
+            <Width>558</Width>
+            <Height>720</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>720 mm x 558 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID>2bf0f04f-7348-4eb3-9227-48157f2b9c96</EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName>Grain Example Edging</LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Carcase , Board</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag>Edging Material - Exposed</EdgingLength1Tag>
+            <EdgingLength2Tag>Edging Material - Exposed</EdgingLength2Tag>
+            <EdgingWidth1Tag>Edging Material - Exposed</EdgingWidth1Tag>
+            <EdgingWidth2Tag>Edging Material - Exposed</EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+        <InputItem Type="Input Panel">
+          <OptimizationInputPiece JobItemType="Panel">
+            <UID>fe7d2134-0354-45a9-bfc2-9254bb4d6042</UID>
+            <Name>Top Shelf</Name>
+            <Width>868</Width>
+            <Height>868</Height>
+            <CanRotate>2</CanRotate>
+            <Dimensions>868 mm x 868 mm</Dimensions>
+            <Quantity>1</Quantity>
+            <EdgeLength1MaterialUID></EdgeLength1MaterialUID>
+            <EdgeLength2MaterialUID></EdgeLength2MaterialUID>
+            <EdgeWidth1MaterialUID></EdgeWidth1MaterialUID>
+            <EdgeWidth2MaterialUID></EdgeWidth2MaterialUID>
+            <LastSavedEdgingLength1MaterialName></LastSavedEdgingLength1MaterialName>
+            <LastSavedEdgingLength2MaterialName></LastSavedEdgingLength2MaterialName>
+            <LastSavedEdgingWidth1MaterialName></LastSavedEdgingWidth1MaterialName>
+            <LastSavedEdgingWidth2MaterialName></LastSavedEdgingWidth2MaterialName>
+            <Notes></Notes>
+            <MaterialUID>949f9496-ecda-491d-9192-947674ffaeb2</MaterialUID>
+            <LastSavedMaterialName>Marble</LastSavedMaterialName>
+            <Note1></Note1>
+            <Note2></Note2>
+            <Note3></Note3>
+            <Note4></Note4>
+            <Group></Group>
+            <ReportTags>Carcase , Board</ReportTags>
+            <Level>Child</Level>
+            <IncludeEdgingThickness>false</IncludeEdgingThickness>
+            <HolesWidth1></HolesWidth1>
+            <HolesWidth2></HolesWidth2>
+            <HolesLength1></HolesLength1>
+            <HolesLength2></HolesLength2>
+            <GroovingWidth1></GroovingWidth1>
+            <GroovingWidth2></GroovingWidth2>
+            <GroovingLength1></GroovingLength1>
+            <GroovingLength2></GroovingLength2>
+            <MaterialTag>Carcase Material - Concealed</MaterialTag>
+            <EdgingLength1Tag></EdgingLength1Tag>
+            <EdgingLength2Tag></EdgingLength2Tag>
+            <EdgingWidth1Tag></EdgingWidth1Tag>
+            <EdgingWidth2Tag></EdgingWidth2Tag>
+            <LongExpansion>0</LongExpansion>
+            <ShortExpansion>0</ShortExpansion>
+          </OptimizationInputPiece>
+        </InputItem>
+      </ChildItems>
+    </InputItem>
+  </InputItems>
+</MaxCut>
