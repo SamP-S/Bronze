@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Delete Quote File</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this item?</p>
+        <button type="submit">Confirm</button>
+        <a href="{% url 'boq_assistan:qf_list' %}">Cancel</a>
+    </form>
+{% endblock content %}

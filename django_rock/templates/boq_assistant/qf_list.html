@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+    <h1>Quote File List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quote File</th>
+                <th>Notes</th>
+                <th>Upload Date</th>
+                <th>Warnings</th>
+                <th>Generated File</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for qf in qfs %}
+            <tr>
+                <td>{{ qf.id }}</td>
+                <td>{{ qf.q_file.name }}</td>
+                <td>{{ qf.notes }}</td>
+                <td>{{ qf.created_at }}</td>
+                <td>{{ qf.warnings }}</td>
+                <td>{{ qf.gen_file.name }}</td>
+                <td><a href="{{ qf.gen_file.url }}" download="qf.gen_file">Download</a></td>
+                <td>
+                    <a href="{% url 'qf_delete' qf.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'qf_create' %}">Add New Quote File</a>
+</center>
+{% endblock %}

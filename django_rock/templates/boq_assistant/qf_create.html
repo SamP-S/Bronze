@@ -1,10 +1,9 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-    <h2>Update MCF</h2>
+    <h1>Create Quote File</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Save changes</button>
+        <button type="submit">Submit</button>
     </form>
-    <a href="{% url 'mcf_list' %}">Cancel</a>
 {% endblock content %}

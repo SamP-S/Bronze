@@ -8,14 +8,14 @@ import os
 from .models import MCFModel, QFModel
 from .forms import MCFForm, QFForm
 
-def my_view(self, request):
+def my_view(request):
     return HttpResponse("My view")
 
 # --- MaxCutFile Views
 class MCFListView(ListView):
     model = MCFModel
     template_name = "boq_assistant/mcf_list.html"
-    context_object_name = "mcf"
+    context_object_name = "mcfs"
     
 class MCFDetailView(DetailView):
     model = MCFModel
@@ -51,7 +51,7 @@ class MCFDeleteView(DeleteView):
 class QFListView(ListView):
     model = QFModel
     template_name = "boq_assistant/qf_list.html"
-    context_object_name = "qf"
+    context_object_name = "qfs"
     
 class QFDetailView(DetailView):
     model = QFModel
