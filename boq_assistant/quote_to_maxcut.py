@@ -5,6 +5,10 @@ import argparse
 import csv
 
 def _qto_get_meta(df):
+    if ("Name" not in df.columns):
+        print("ERROR: Name not found in columns")
+        return None, None
+        
     max_row_options = df.index[df["Name"] == "Description"].tolist()
     if (len(max_row_options) == 0):
         print(f"ERROR: Can't autodetect max row num")
@@ -17,6 +21,7 @@ def _qto_get_meta(df):
     material = df.at[max_row + 2, "Name"]
     print(f"INFO: Found material: {material}")
     return max_row, material
+
 
 def _qto_order_length_width(df):
     if ("Length" not in df.columns) or ("Width" not in df.columns):
@@ -33,6 +38,7 @@ def _qto_order_length_width(df):
 # parse dataframe to maxcut csv
 # returns output path if successful, else returns None
 def qto_to_maxcut_csv(df, output_path):
+    print()
     # search for max row by finding "Description" keyword
     ### TODO: support lower case
     max_row, material = _qto_get_meta(df)
@@ -72,7 +78,7 @@ def qto_to_maxcut_csv(df, output_path):
         return None
     
 # returns list of successful csv output paths
-def quote_to_maxcut(input_path, output_path=None, sheets=None):
+def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
     # input file verification
     if not os.path.exists(input_path):
         print(f"ERROR: Can't find input file.\n{input_path}")
@@ -101,16 +107,22 @@ def quote_to_maxcut(input_path, output_path=None, sheets=None):
     
     # sheet selection
     sheets = pd.read_excel(xl, sheet_name=None)
-    print(f"INFO: sheets: {sheets.keys()}")
+    print(f"INFO: found sheets: {sheets.keys()}")
+    print(f"INFO: requested sheets: {sheet_names}")
+    if (sheet_names is None) or len(sheet_names) == 0:
+        print("INFO: No sheets requested. Processing all sheets instead.")
+        sheet_names = list(sheets.keys())
+        
     ignore_sheets = [
-        "Front Cover", "Allowances",
-        "Quote", "Tiling",
-        "Stone", "Cover Sheet",
+        "Front Cover", "Allowances", "Quote",
+        "Tiling", "Stone", "Cover Sheet",
     ]
-    for sheet in ignore_sheets:
-        if sheet.lower() in {k.lower(): v for k, v in sheets.items()}:
-            print(f"INFO: Ignoring sheet '{sheet}'. Skipping...")
-            del sheets[sheet]
+    ignore_sheets = [x.lower() for x in ignore_sheets]
+    for key in sheet_names:
+        if key.lower() in ignore_sheets:
+            print(f"INFO: Ignoring sheet '{key}'. Skipping...")
+            del sheets[key]
+    print(f"INFO: Sheets to process: {sheets.keys()}")
             
     # main conversion loop
     succ_paths = []
@@ -118,13 +130,24 @@ def quote_to_maxcut(input_path, output_path=None, sheets=None):
         df = sheets[key]
     
         # make output file name
-        base_filename = os.path.basename(input_path).rsplit(".", 1)
+        filename = os.path.basename(input_path).rsplit(".", 1)
+        if (len(filename) == 0):
+            print(f"WARNING: Unexpected failure to split filename ({len(filename)}).\n{filename}")
+            base_filename = "failed_name"
+        elif (len(filename) == 1):
+            print(f"WARNING: Unexpected failure to split filename ({len(filename)}).\n{filename}")
+            base_filename = filename[0]
+        else:
+            base_filename = filename[0]
         save_path = os.path.join(output_dir, f"{base_filename}_{key}.csv")
+        print(base_filename)
         
         print(f"INFO: Attempting sheet {key}.\nOutput to: {save_path}")
         path = qto_to_maxcut_csv(df, save_path)
         if not(path is None):
             succ_paths.append(path)
+        else:
+            print(f"WARNING: Failed to convert sheet {key}.")
     return succ_paths   
 
 
