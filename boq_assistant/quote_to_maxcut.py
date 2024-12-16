@@ -106,6 +106,7 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
         print(f"INFO: Created output directory.\n{output_dir}")
     
     # sheet selection
+    # TODO: improve this garbage
     sheets = pd.read_excel(xl, sheet_name=None)
     print(f"INFO: found sheets: {sheets.keys()}")
     print(f"INFO: requested sheets: {sheet_names}")
@@ -113,20 +114,26 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
         print("INFO: No sheets requested. Processing all sheets instead.")
         sheet_names = list(sheets.keys())
         
+    for sheet_name in sheet_names:
+        if sheet_name not in sheets.keys():
+            print(f"WARNING: Sheet '{sheet_name}' not found in file. Skipping...")
+            sheet_names.remove(sheet_name)
+        
     ignore_sheets = [
         "Front Cover", "Allowances", "Quote",
         "Tiling", "Stone", "Cover Sheet",
     ]
     ignore_sheets = [x.lower() for x in ignore_sheets]
     for key in sheet_names:
+        print(f"CHECK: {key.lower()} in {ignore_sheets}")
         if key.lower() in ignore_sheets:
             print(f"INFO: Ignoring sheet '{key}'. Skipping...")
-            del sheets[key]
-    print(f"INFO: Sheets to process: {sheets.keys()}")
+            sheet_names.remove(key)
+    print(f"INFO: Sheets to process: {sheet_names}")
             
     # main conversion loop
     succ_paths = []
-    for key in sheets:
+    for key in sheet_names:
         df = sheets[key]
     
         # make output file name
