@@ -70,49 +70,54 @@ def maxcut_to_quote(input_path, output_path):
 # TODO: Accept edging
 # TODO: Support .mc3 files
 
-parser = argparse.ArgumentParser(
-    prog="scs_quote_to_maxcut",
-    description="convert quote sheet from .xlsx to maxcut .csv"
-)
+def main():
 
-# Required arguments
-parser.add_argument("filepath")
-# Optional arguments
-parser.add_argument("-o", "--output", help="output directory")
+    parser = argparse.ArgumentParser(
+        prog="scs_quote_to_maxcut",
+        description="convert quote sheet from .xlsx to maxcut .csv"
+    )
 
-args = parser.parse_args()
+    # Required arguments
+    parser.add_argument("filepath")
+    # Optional arguments
+    parser.add_argument("-o", "--output", help="output directory")
 
-# set default output path
-base_path, _ = args.filepath.rsplit(".", 1)
-output_path = base_path + f"_quote.xlsx"
-# use given output path if provided
-if not args.output is None:
-    output_path = os.path.abspath(args.output)
+    args = parser.parse_args()
 
-# check for output overwrite
-if os.path.exists(output_path):
-    print(f"WARNING: File already exists. Should I overwrite it?\n{output_path}")
-    user_input = input("y/n")
-    if user_input == "y":
-        print(f"INFO: Will overwrite file.\n{output_path}")
+    # set default output path
+    base_path, _ = args.filepath.rsplit(".", 1)
+    output_path = base_path + f"_quote.xlsx"
+    # use given output path if provided
+    if not args.output is None:
+        output_path = os.path.abspath(args.output)
+
+    # check for output overwrite
+    if os.path.exists(output_path):
+        print(f"WARNING: File already exists. Should I overwrite it?\n{output_path}")
+        user_input = input("y/n")
+        if user_input == "y":
+            print(f"INFO: Will overwrite file.\n{output_path}")
+        else:
+            print("INFO: Exiting.")
+            exit(0)
+
+    # check for input file
+    if not os.path.exists(args.filepath):
+        print(f"ERROR: Can't find input file.\n{args.filepath}")
+        exit(1)
+        
+    # check input file type
+    if not args.filepath.endswith(".csv"):
+        print(f"ERROR: input file is not CSV file.\n{args.filepath}")
+        exit(1)
+
+    # convert maxcut csv to quote xlsx
+    err = maxcut_to_quote(args.filepath, output_path)
+    if err is None:
+        print(f"INFO: Conversion successful. Output written to:\n{output_path}")
     else:
-        print("INFO: Exiting.")
-        exit(0)
+        print(f"ERROR: Conversion failed.\n{err}")
+        exit(1)
 
-# check for input file
-if not os.path.exists(args.filepath):
-    print(f"ERROR: Can't find input file.\n{args.filepath}")
-    exit(1)
-    
-# check input file type
-if not args.filepath.endswith(".csv"):
-    print(f"ERROR: input file is not CSV file.\n{args.filepath}")
-    exit(1)
-
-# convert maxcut csv to quote xlsx
-err = maxcut_to_quote(args.filepath, output_path)
-if err is None:
-    print(f"INFO: Conversion successful. Output written to:\n{output_path}")
-else:
-    print(f"ERROR: Conversion failed.\n{err}")
-    exit(1)
+if __name__ == "__main__":
+    main()
