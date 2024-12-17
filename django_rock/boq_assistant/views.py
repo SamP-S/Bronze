@@ -11,6 +11,39 @@ from .forms import MCFForm, QFForm
 def my_view(request):
     return HttpResponse("My view")
 
+# NOTE: file urls are all relative to MEDIA_ROOT
+# i.e. <MEDIA_ROOT>"/dir/my_file.txt"
+# returns valid_path, original filename
+def get_valid_upload_path(path):
+    filename = os.path.basename(path)
+    parent_dir = os.path.dirname(path)
+    
+    # ensure necessary subdir exists
+    if not os.path.exists(os.path.join(settings.MEDIA_ROOT, parent_dir)):
+        os.makedirs(os.path.join(settings.MEDIA_ROOT, parent_dir), exist_ok=True)
+    
+    print(f"path: {path}")
+    print(f"path type: {type(path)}")
+    print(f"dirname: {parent_dir}")
+    print(f"basename: {filename}")
+    
+    # catch guard for existing path
+    if not os.path.exists(os.path.join(settings.MEDIA_ROOT, path)):
+        return path, filename
+    
+    # file exists, generate new path sequentially
+    # TODO: use random str generation for better performance
+    base, extension = os.path.splitext(filename)
+    count = 1
+    new_filename = f"{base}_{count}{extension}"
+    new_path = os.path.join(parent_dir, new_filename)
+    while os.path.exists(os.path.join(settings.MEDIA_ROOT, new_path)):
+        count += 1
+        new_filename = f"{base}_{count}{extension}"
+        new_path = os.path.join(parent_dir, new_filename)
+    return new_path, filename
+       
+
 # --- MaxCutFile Views
 class MCFListView(ListView):
     model = MCFModel
@@ -31,6 +64,7 @@ class MCFCreateView(CreateView):
     def form_valid(self, form):
         # if form.is_valid():
         obj = form.save(commit=False)
+        print(f"HERE 1: {obj.mc_file}")
         path = settings.MEDIA_ROOT + "/test_file.txt"
         with open(path, "wt") as f:
             f.write("1234\n")
@@ -38,7 +72,7 @@ class MCFCreateView(CreateView):
         # datetime set automatically
         obj.gen_file.name = path
         obj.warnings = "No warnings"
-        print(obj.gen_file)
+        print(f"HERE 2: {obj.gen_file}")
         obj.save()
         return super().form_valid(form)
     
@@ -65,17 +99,24 @@ class QFCreateView(CreateView):
     
     ### TODO: implement file path validation to ensure existing files dont get deleted
     def form_valid(self, form):
-        # if form.is_valid():
         obj = form.save(commit=False)
-        path = settings.MEDIA_ROOT + "/test_file.txt"
+        
+        ori_path = os.path.join("qf", obj.q_file.name)
+        print(f"original path = {ori_path}")
+        new_path, ori_filename = get_valid_upload_path(ori_path)
+        
+        obj.q_file.name = new_path
+        
+        path = settings.MEDIA_ROOT + "/test.txt"
         with open(path, "wt") as f:
             f.write("1234\n")
-            
-        # datetime set automatically
+        
+        # Save the new file path to gen_file
         obj.gen_file.name = path
         obj.warnings = "No warnings"
-        print(obj.gen_file)
+        print(f"generated file: {obj.gen_file}")
         obj.save()
+        
         return super().form_valid(form)
     
 class QFDeleteView(DeleteView):
