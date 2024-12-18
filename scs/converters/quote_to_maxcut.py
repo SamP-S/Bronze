@@ -3,6 +3,20 @@ import pandas as pd
 import numpy as np
 import argparse
 import csv
+import zipfile
+
+def _pathlist_to_zip(pathlist, output_path):
+    if os.path.exists(output_path):
+        print(f"WARNING: Output file already exists. Overwriting...\n{output_path}")
+    with open(output_path, "wb") as f:
+        with zipfile.ZipFile(f, "w") as z:
+            for path in pathlist:
+                if (path is None) or (not os.path.exists(path)):
+                    print(f"WARNING: Path not found. Skipping...\n{path}")
+                    continue
+                # set arcname to filename only, dont copy full dir path
+                z.write(path, os.path.basename(path))
+    return output_path
 
 def _qto_get_meta(df):
     if ("Name" not in df.columns):
@@ -77,15 +91,15 @@ def qto_to_maxcut_csv(df, output_path):
         print(f"ERROR: Failed to write to: {output_path}")
         return None
     
-# returns list of successful csv output paths
+# returns path of successful zip output path or None
 def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
     # input file verification
     if not os.path.exists(input_path):
         print(f"ERROR: Can't find input file.\n{input_path}")
-        return []
+        return None
     if not input_path.endswith(".xlsx"):
         print(f"ERROR: input file is not Excel file.\n{input_path}")
-        return []
+        return None
     
     xl = None
     try:
@@ -93,7 +107,7 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
     except Exception as err:
         print(f"ERROR: Couldn't open file.\n {err}")
         print("Please close the file if you have it opened in excel.")
-        return []
+        return None
     
     # output directory verification
     output_dir = os.path.dirname(os.path.abspath(input_path))
@@ -131,21 +145,15 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
             sheet_names.remove(key)
     print(f"INFO: Sheets to process: {sheet_names}")
             
+    # make output file name
+    filename_ext = os.path.splitext(os.path.basename(input_path))
+        
     # main conversion loop
     succ_paths = []
     for key in sheet_names:
         df = sheets[key]
     
-        # make output file name
-        filename = os.path.basename(input_path).rsplit(".", 1)
-        if (len(filename) == 0):
-            print(f"WARNING: Unexpected failure to split filename ({len(filename)}).\n{filename}")
-            base_filename = "failed_name"
-        elif (len(filename) == 1):
-            print(f"WARNING: Unexpected failure to split filename ({len(filename)}).\n{filename}")
-            base_filename = filename[0]
-        else:
-            base_filename = filename[0]
+        base_filename = filename_ext[0]
         save_path = os.path.join(output_dir, f"{base_filename}_{key}.csv")
         print(base_filename)
         
@@ -155,7 +163,10 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
             succ_paths.append(path)
         else:
             print(f"WARNING: Failed to convert sheet {key}.")
-    return succ_paths   
+    
+    zip_path = os.path.join(output_dir, f"{base_filename}_maxcut.zip")
+    _pathlist_to_zip(succ_paths, zip_path)
+    return zip_path   
 
 
 ### IMPORTANT IMPLEMENTATION NOTES:
