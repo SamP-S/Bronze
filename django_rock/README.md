@@ -28,3 +28,27 @@ Install the dependencies using requirements.txt
 ``` bash
 python -m pip install -r "requirements.txt"
 ```
+
+## Deployment
+#### [python anywhere](https://pythonanywhere.com)
+- £5 a month subscription for a single web app (single website)
+- 1GB storage
+- 2000s CPU time per day as priority (33.33 minutes) the in the tarpit
+- "enough power to run a 100,000 hit/day site"
+
+#### [google cloud](https://cloud.google.com)
+- likely uses "App engine"
+- free tier but unclear what
+- wants you to do it their way
+- fucking confusing
+
+#### [aws](https://aws.amazon.com/free)
+- offers elastic cloud (EC2) where you run virtual servers to scale up/down
+- free 12 months of 750 hours ec2
+
+#### [raspberry pi zero w](https://raspberrypi.org)
+- pi zero 2 is £15
+- limited storage unless v big sd card
+- slow networking
+- needs lots of extras e.g. cooling, power supply, ethernet adapter
+
