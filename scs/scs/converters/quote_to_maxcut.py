@@ -110,10 +110,10 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
         return None
     
     # output directory verification
-    output_dir = os.path.dirname(os.path.abspath(input_path))
+    output_dir = os.path.dirname(input_path)
     if not output_path is None:
         print(f"INFO: No output directory set. Using default.\n{output_dir}")
-        output_dir = os.path.abspath(output_path)
+        output_dir = output_path
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
