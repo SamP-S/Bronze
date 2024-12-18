@@ -24,8 +24,12 @@
                 <td>{{ qf.notes }}</td>
                 <td>{{ qf.created_at }}</td>
                 <td>{{ qf.warnings }}</td>
-                <td>{{ qf.gen_file.name }}</td>
-                <td><a href="{{ qf.gen_file.url }}" download="qf.gen_file">Download</a></td>
+                <td>{{ qf.gen_file.name|default_if_none:"" }}</td>
+                <td>
+                    {% if qf.gen_file %}
+                        <a href="{{ qf.gen_file.url }}" download="{{ qf.filename }}">Download</a>
+                    {% endif %}
+                </td>
                 <td>
                     <a href="{% url 'qf_delete' qf.id %}">Delete</a>
                 </td>
