@@ -15,6 +15,7 @@ class MCFModel(models.Model):
     name = models.CharField("name", max_length=255, default="Unnamed")
     notes = models.TextField("notes", default="", blank=True, null=False)
     mc_file = models.FileField("maxcut_file", validators=[validate_file_is_csv])
+    filename = models.CharField("filename", max_length=255, default="bad_name.txt")
     
     # auto generated
     created_at = models.DateTimeField("created_at", auto_now_add=True)
@@ -29,6 +30,7 @@ class QFModel(models.Model):
     name = models.CharField("name", max_length=255, default="Unnamed")
     notes = models.TextField("notes", default="", blank=True, null=False)
     q_file = models.FileField("quote_file", validators=[validate_file_is_excel])
+    filename = models.CharField("filename", max_length=255, default="bad_name.txt")
     
     # auto generated
     created_at = models.DateTimeField("created_at", auto_now_add=True)
