@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="SCSTools",
+    name="scs",
     version="0.1.0",
     description="Package for all tools across SCS projects",
     url="https://www.southcoaststone.com",
