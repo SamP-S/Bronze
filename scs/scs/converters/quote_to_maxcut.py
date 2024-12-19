@@ -90,7 +90,9 @@ def qto_to_maxcut_csv(df, output_path):
     except Exception as e:
         print(f"ERROR: Failed to write to: {output_path}")
         return None
-    
+
+# TODO: make it delete csv files generated after zipping
+# TODO: convert ouput_path arg to output_path and tmp_dir
 # returns path of successful zip output path or None
 def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
     # input file verification
@@ -114,10 +116,12 @@ def quote_to_maxcut(input_path, output_path=None, sheet_names=None):
     if not output_path is None:
         print(f"INFO: No output directory set. Using default.\n{output_dir}")
         output_dir = output_path
-
+    
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
-        print(f"INFO: Created output directory.\n{output_dir}")
+        print(f"INFO: Output path parent directory not found. Creating output directory.\n{output_dir}")
+
+
     
     # sheet selection
     # TODO: improve this garbage

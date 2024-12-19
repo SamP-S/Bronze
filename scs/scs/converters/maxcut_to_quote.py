@@ -4,12 +4,13 @@ import numpy as np
 import argparse
 import csv
 
+
 # loads template xlsx file and returns sheets as dictionary of pd.DataFrames or empty dictionary if failed
 ### TODO:
 # copy template xlsx to output path then write new qto sheets to it
 # means existing formatting will be preserved instead of getting trunced by dataframe
 def get_template_sheets():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(__file__)
     template_path = os.path.join(base_dir, "template.xlsx")
     try:
         xl = pd.ExcelFile(template_path)
@@ -23,32 +24,55 @@ def get_template_sheets():
         print(f"WARNING: Couldn't open template, skipping...\n{err}")
         return {}
 
-def maxcut_to_quote(input_path, output_path):
-    output_dir = os.path.dirname(os.path.abspath(output_path))
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir, exist_ok=True)
-        print(f"INFO: Created output directory.\n{output_dir}")
-
+# converts maxcut csv to xlsx quote
+# returns path to quote or None if failed
+def maxcut_to_quote(input_path, output_path=None):
+    if input_path is None:
+        print(f"ERROR: Input path is None.\n{input_path}")
+        return None
+    
     if not os.path.exists(input_path):
-        return f"ERROR: Can't find input file.\n{input_path}"
+        print(f"ERROR: Can't find input file.\n{input_path}")
+        return None
         
     if not input_path.endswith(".csv"):
-        return f"ERROR: input file is not CSV file.\n{input_path}"
+        print(f"ERROR: input file is not CSV file.\n{input_path}")
+        return None
     
+    
+    if output_path is None:
+        print(f"INFO: Output path is None. Using default.\n{output_path}")
+        filename_ext = os.path.splitext(input_path)
+        output_path = filename_ext[0] + "_quote.xlsx"
+    
+    if os.path.exists(output_path):
+        print(f"ERROR: Output file already exists. Refusing to overwrite.\n{output_path}")
+        return None
+    
+    output_dir = os.path.dirname(output_path)
+    if not os.path.exists(output_dir) and len(output_dir) > 0:
+        os.makedirs(output_dir, exist_ok=True)
+        print(f"INFO: Output path parent directory not found. Creating output directory.\n{output_dir}")
+
     # attempt to load csv
     df = None
     try:
         # read first line to get delimiter
         with open(input_path, 'r') as file:
-            sep = file.readline().strip().split('=')[1]
-        df = pd.read_csv(input_path, sep=sep, skiprows=1)
+            line = file.readline()
+            if (line.startswith("Sep=")):
+                sep = line.strip().split('=')[1]
+                df = pd.read_csv(input_path, sep=sep, skiprows=1)
+            else:
+                df = pd.read_csv(input_path, sep=",")
+        
     except Exception as err:
-        return f"ERROR: Couldn't open file.\n{input_path}\n {err}\nPlease close the file if you have it opened in excel."
+        return f"ERROR: Couldn't open file.\n{input_path}\n {err}\nPlease close the file if you have it opened."
     
     # parse df
     ### TODO: condider other columns to include/use for categorization/subcategorization for generating main stone sheet
     ### TODO: currently skipping grouping & edging atm edge_N, Import ID, Parent ID
-    print(df.columns)
+    print(f"columns = {df.columns}")
     df = df[["Type", "Name", "Length", "Width", "Quantity", "Notes", "Material"]]
     df = df[~df["Type"].isin(["Input Labour", "Input Hardware", "Input Edging", "Input Group"])]
 
@@ -59,6 +83,11 @@ def maxcut_to_quote(input_path, output_path):
     df["Notes"] = df["Notes"].fillna("")
     
     materials = df["Material"].unique()
+    print(f"INFO: Found material set:\n{materials}")
+    print(f"INFO: df shape = {df.shape}")
+    print(f"INFO: df columns = {df.columns}")
+    print(f"INFO: df:\n{df}")
+    return None
 
 
 ### IMPORTANT IMPLEMENTATION NOTES:
@@ -76,47 +105,19 @@ def main():
         prog="scs_quote_to_maxcut",
         description="convert quote sheet from .xlsx to maxcut .csv"
     )
-
     # Required arguments
     parser.add_argument("filepath")
     # Optional arguments
-    parser.add_argument("-o", "--output", help="output directory")
-
+    parser.add_argument("-o", "--output_path", help="output filepath")
+    # Compile args
     args = parser.parse_args()
 
-    # set default output path
-    base_path, _ = args.filepath.rsplit(".", 1)
-    output_path = base_path + f"_quote.xlsx"
-    # use given output path if provided
-    if not args.output is None:
-        output_path = os.path.abspath(args.output)
-
-    # check for output overwrite
-    if os.path.exists(output_path):
-        print(f"WARNING: File already exists. Should I overwrite it?\n{output_path}")
-        user_input = input("y/n")
-        if user_input == "y":
-            print(f"INFO: Will overwrite file.\n{output_path}")
-        else:
-            print("INFO: Exiting.")
-            exit(0)
-
-    # check for input file
-    if not os.path.exists(args.filepath):
-        print(f"ERROR: Can't find input file.\n{args.filepath}")
-        exit(1)
-        
-    # check input file type
-    if not args.filepath.endswith(".csv"):
-        print(f"ERROR: input file is not CSV file.\n{args.filepath}")
-        exit(1)
-
     # convert maxcut csv to quote xlsx
-    err = maxcut_to_quote(args.filepath, output_path)
-    if err is None:
-        print(f"INFO: Conversion successful. Output written to:\n{output_path}")
+    quote_path = maxcut_to_quote(args.filepath, args.output_path)
+    if quote_path is None:
+        print(f"INFO: Conversion successful. Output written to:\n{quote_path}")
     else:
-        print(f"ERROR: Conversion failed.\n{err}")
+        print(f"ERROR: Conversion failed.\n{quote_path}")
         exit(1)
 
 if __name__ == "__main__":
