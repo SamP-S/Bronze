@@ -3,26 +3,37 @@ import pandas as pd
 import numpy as np
 import argparse
 import csv
+from openpyxl import load_workbook
 
 
-# loads template xlsx file and returns sheets as dictionary of pd.DataFrames or empty dictionary if failed
+# loads template.xlsx file and returns sheets as dictionary of pd.DataFrames or empty dictionary if failed
 ### TODO:
-# copy template xlsx to output path then write new qto sheets to it
+# copy template.xlsx to output path then write new qto sheets to it
 # means existing formatting will be preserved instead of getting trunced by dataframe
-def get_template_sheets():
+# returns template workbook
+def get_template_wb():
     base_dir = os.path.dirname(__file__)
     template_path = os.path.join(base_dir, "template.xlsx")
+    if not os.path.exists(template_path):
+        print(f"WARNING: Quote template not found.\n{template_path}")
+        return None
+    
+    # TODO: hack solution to not have to recreate formulas
+    # create template sheets inside of the template.xlsx
+    # make it 100s of lines of usable space, fill as needed then delete unused rows
+    # leaving a few as a buffer. Allows for customising the template without having
+    # to program it in python.
+    # makes it a fuck to easier but does force template.xlsx to exist else no formatting
+    # which makes it practically useless
+    
     try:
-        xl = pd.ExcelFile(template_path)
-        template_sheets = pd.read_excel(xl, sheet_name=None)
-        print(f"INFO: Found template sheets.\n{template_sheets.keys()}")
-        # print(type(template_sheets))
-        # print(type(template_sheets["Front Cover"]))
-        xl.close()
-        return template_sheets
+        workbook = load_workbook(template_path)
+        return workbook
     except Exception as err:
         print(f"WARNING: Couldn't open template, skipping...\n{err}")
-        return {}
+        return None
+
+    
 
 # converts maxcut csv to xlsx quote
 # returns path to quote or None if failed
@@ -87,6 +98,18 @@ def maxcut_to_quote(input_path, output_path=None):
     print(f"INFO: df shape = {df.shape}")
     print(f"INFO: df columns = {df.columns}")
     print(f"INFO: df:\n{df}")
+    
+    for material in materials:
+        print(f"INFO: Processing material: {material}")
+        material_df = df[df["Material"] == material]
+        print(f"INFO: material_df shape = {material_df.shape}")
+        
+        
+    wb = get_template_wb()
+    print(f"INFO: workbook:\n{wb}")
+    print(f"INFO: sheetnames:\n{wb.sheetnames}")
+    print(f"INFO: workbook path:\n{wb.path}")
+    
     return None
 
 
