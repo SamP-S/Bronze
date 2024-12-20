@@ -7,7 +7,7 @@ from openpyxl import load_workbook
 import importlib.resources as pkg_resources
 
 
-# loads template.xlsx file and returns sheets as dictionary of pd.DataFrames or empty dictionary if failed
+# loads template.xlsx file from package source and returns workbook or None if failed
 ### TODO:
 # copy template.xlsx to output path then write new qto sheets to it
 # means existing formatting will be preserved instead of getting trunced by dataframe
@@ -28,7 +28,7 @@ def get_template_wb():
             workbook = load_workbook(file)
             return workbook
     except Exception as err:
-        print(f"WARNING: Couldn't open template, skipping...\n{err}")
+        print(f"ERROR: Couldn't open template, skipping...\n{err}")
         return None
 
     
