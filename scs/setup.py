@@ -23,5 +23,9 @@ setup(
     install_requires=["pandas", "openpyxl", "numpy", "python-dotenv",
         "google-api-python-client", "google-auth-httplib2", "google-auth-oauthlib",
     ],
+    include_package_data=True,
+    package_data={
+        "scs/converters": ["scs/converters/template.xlsx"],
+    }
 )
 

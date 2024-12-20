@@ -4,6 +4,7 @@ import numpy as np
 import argparse
 import csv
 from openpyxl import load_workbook
+import importlib.resources as pkg_resources
 
 
 # loads template.xlsx file and returns sheets as dictionary of pd.DataFrames or empty dictionary if failed
@@ -12,12 +13,7 @@ from openpyxl import load_workbook
 # means existing formatting will be preserved instead of getting trunced by dataframe
 # returns template workbook
 # TODO: Package template.xlsx with scs package to ensure it is kept with the sourcecode
-def get_template_wb():
-    base_dir = os.path.dirname(__file__)
-    template_path = os.path.join(base_dir, "template.xlsx")
-    if not os.path.exists(template_path):
-        print(f"WARNING: Quote template not found.\n{template_path}")
-        return None
+def get_template_wb():    
     
     # TODO: hack solution to not have to recreate formulas
     # create template sheets inside of the template.xlsx
@@ -28,8 +24,9 @@ def get_template_wb():
     # which makes it practically useless
     
     try:
-        workbook = load_workbook(template_path)
-        return workbook
+        with pkg_resources.open_binary('scs.converters', 'template.xlsx') as file:
+            workbook = load_workbook(file)
+            return workbook
     except Exception as err:
         print(f"WARNING: Couldn't open template, skipping...\n{err}")
         return None
