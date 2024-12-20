@@ -11,6 +11,7 @@ from openpyxl import load_workbook
 # copy template.xlsx to output path then write new qto sheets to it
 # means existing formatting will be preserved instead of getting trunced by dataframe
 # returns template workbook
+# TODO: Package template.xlsx with scs package to ensure it is kept with the sourcecode
 def get_template_wb():
     base_dir = os.path.dirname(__file__)
     template_path = os.path.join(base_dir, "template.xlsx")
