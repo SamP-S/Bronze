@@ -30,28 +30,10 @@ def test_gmail(creds):
   
   
 def test_sheets(creds):
-	try:
-		service = build("sheets", "v4", credentials=creds)
-
-		SAMPLE_SPREADSHEET_ID = "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
-		SAMPLE_RANGE_NAME = "Class Data!A2:E"
-		# Call the Sheets API
-		sheet = service.spreadsheets()
-		result = (
-			sheet.values()
-			.get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range=SAMPLE_RANGE_NAME)
-			.execute()
-		)
-		values = result.get("values", [])
-		if not values:
-			print("No data found.")
-			return
-		print(f"Values: {values}")
-		for row in values:
-			print(f"Row: {row}")
-   
-	except HttpError as error:
-		print(f"ERROR: test_gmail: {error}")
+	SAMPLE_SPREADSHEET_ID = scs.google.SAMPLE_SPREADSHEET_ID
+	SAMPLE_RANGE_NAME = scs.google.SAMPLE_RANGE_NAME
+	df = scs.google.LoadSheet(creds, SAMPLE_SPREADSHEET_ID, SAMPLE_RANGE_NAME)
+	print(df)
 
 
 def main():
