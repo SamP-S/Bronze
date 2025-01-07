@@ -4,6 +4,7 @@
 ## List of Projects:
 1. [SCS Package](scs/README.md)
 2. [Django Website](django_rock/README.md)
+3. [Cron Jobs](cron/README.md)
 
 ## Summary
 The toolbox for all South Coast Stone internal tools, websites, services and systems to help automate all digital processes. find each respective tool as a seperate "project" where some may build on existing tools or be used for deployment.
