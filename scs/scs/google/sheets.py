@@ -16,7 +16,7 @@ SAMPLE_RANGE_NAME = "Class Data!A:Z"
 
 # TODO: support many more parameters
 # Read in a google sheet from api into pandas dataframe of raw data for local read usage
-def LoadSheet(creds:Credentials, sheet_id:str, range:str, valueRenderOption="UNFORMATTED_VALUE", isFirstRowHeader=True) -> pd.DataFrame:
+def LoadSheet(creds:Credentials, sheet_id:str, range:str, valueRenderOption="UNFORMATTED_VALUE", headerRow=None) -> pd.DataFrame:
     try:
         service = build("sheets", "v4", credentials=creds)
         
@@ -31,11 +31,14 @@ def LoadSheet(creds:Credentials, sheet_id:str, range:str, valueRenderOption="UNF
         if not values:
             print(f"WARNING {__name__}: No data found. @ {sheet_id} in {range}")
             return None
-        if isFirstRowHeader:
-            return pd.DataFrame(values[1:], columns=values[0])
-        else:
+        
+        # TODO: implement better catch guards
+        if headerRow is None:
             return pd.DataFrame(values)
+        else:            
+            return pd.DataFrame(values[headerRow+1:], columns=values[headerRow])
+            
         
     except HttpError as error:
         print(f"ERROR {__name__}: {error}")
-        return None
+        return None()

@@ -48,7 +48,7 @@ def main():
 	token_path = os.path.expanduser(os.environ.get("TOKEN_PATH"))
 	credentials_path = os.path.expanduser(os.environ.get("CREDENTIALS_PATH"))
 	creds = scs.google.GenToken(token_path, credentials_path, scs.google.SCOPES)
-	print(creds)
+ 
 	if (creds is None) or not creds.valid:
 		print("ERROR: Failed to generate credentials. FAILED.")
 		return
