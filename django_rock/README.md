@@ -16,9 +16,8 @@ An internal website to manage quote requests from clients, send reminders to rep
 7. New page per year
 8. Allow create, edit and delete contracts
 9. Support various summary creation.
-10. 
-## Todo
 
+## Todo
 - Converge file converters to single pages
 - Merge file converters into single autodetecting converter
 
@@ -30,6 +29,20 @@ python -m pip install -r "requirements.txt"
 ```
 
 ## Deployment
+Deployment on raspberry pi zero w for very cheap hosting within local network.
+
+#### Todo:
+- Use duckdns.org as hosted DNS webdomain, easier to share than hostname.
+- Utilise git webhooks and jenkins to ensure webserver is latest
+- Implement testing and upkeep bot to notify if latest is broken
+
+#### Issues:
+- Only local network access, as without proper authentication and network firewall control it will be a security risk.
+- Only 8GB Micro SD card so very limited storage.
+- Networking speed and SD card is slow.
+
+
+## Alternative Deployment Options
 #### [python anywhere](https://pythonanywhere.com)
 - £5 a month subscription for a single web app (single website)
 - 1GB storage

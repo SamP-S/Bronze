@@ -1,4 +1,4 @@
-# [[<-]](../README.md) Automated Email Reminder System
+# [[<-]](../../README.md) Automated Email Reminder System
 Google API based email reminder system. Utilising Google API and OAuth.
 
 ## Requirements
@@ -13,9 +13,3 @@ python quickstart.py"
 
 ## Summary
 Wraps the Google API for Gmail and Sheets as a single interface.
-
-
-<!-- ## Environment Variables
-To run this project, you will need to add the following environment variables to your .env file <br/>
-`AUTO_EMAIL`
-`AUTO_PASSWORD` -->
