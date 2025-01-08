@@ -34,5 +34,5 @@ class FileConvertModel(models.Model):
     class Meta:
         ordering = ["-created_at"]
 
-    # def __str__(self):
-    #     return self.file.name
+    def __str__(self):
+        return str(self.id) + f"_{self.filename}"
