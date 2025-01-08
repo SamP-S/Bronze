@@ -41,4 +41,4 @@ def LoadSheet(creds:Credentials, sheet_id:str, range:str, valueRenderOption="UNF
         
     except HttpError as error:
         print(f"ERROR {__name__}: {error}")
-        return None()
+        return None
