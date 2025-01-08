@@ -35,5 +35,23 @@ today = date.today()
 reminder_threshold = today + timedelta(days=3)
 print(reminder_threshold)
 df = df[df["Tender Closing Date"] <= pd.Timestamp(reminder_threshold)]
-
 print(df)
+print(df.shape)
+
+if df.shape[0] <= 0:
+    print("INFO: No reminders to send. Exiting...")
+    exit()
+
+msg = ""
+for index, row in df.iterrows():
+    days_left = (row["Tender Closing Date"] - pd.Timestamp(today)).days
+    msg += f"{row["Contractor"]} -> {row["Project Address"]} has {days_left} days left to tender closing date\n"
+msg += "\n\n Send Quotes ASAP.\n"
+
+scs.google.gmail.SendEmail(
+    creds, 
+    "sam@southcoaststone.com", 
+    "sam@southcoaststone.com", 
+    "Tender Closing Reminder",
+    msg
+)
