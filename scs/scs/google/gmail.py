@@ -26,7 +26,7 @@ def DraftEmail(creds: Credentials, sender:str, receiver:str, subject:str, msg:st
         service = build("gmail", "v1", credentials=creds)
 
         message = EmailMessage()
-        message.set_content(msg)
+        message.set_content(msg, subtype="html")
         message["To"] = receiver
         message["From"] = sender
         message["Subject"] = subject

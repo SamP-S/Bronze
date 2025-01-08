@@ -42,10 +42,16 @@ if df.shape[0] <= 0:
     print("INFO: No reminders to send. Exiting...")
     exit()
 
-msg = ""
+# msg = "Hi,\n\nThe following tenders are closing <b>soon</b>:\n\n"
+# for index, row in df.iterrows():
+#     days_left = (row["Tender Closing Date"] - pd.Timestamp(today)).days
+#     msg += f"<i>{row["Contractor"]}</i>\t@\t<b>{row["Project Address"]}</b>: {days_left} days.\n"
+# msg += "\n\n Send Quotes ASAP.\n"
+
+msg = "Hi,\n\nThe following tenders are closing **soon**:\n\n"
 for index, row in df.iterrows():
     days_left = (row["Tender Closing Date"] - pd.Timestamp(today)).days
-    msg += f"{row["Contractor"]} -> {row["Project Address"]} has {days_left} days left to tender closing date\n"
+    msg += f"{row["Contractor"]}  @  {row["Project Address"]}: \t{days_left} days.\n"
 msg += "\n\n Send Quotes ASAP.\n"
 
 scs.google.gmail.SendEmail(
