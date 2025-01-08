@@ -85,9 +85,9 @@ class FCCreateView(CreateView):
         # TODO: replace if-switch with dictionary look up
         gen_path = None
         if obj.conversion == "quote_xl_to_maxcut_zip":
-            gen_path = scs.converters.quote_to_maxcut(rel_root_path)
+            gen_path = scs.conv.quote_to_maxcut(rel_root_path)
         else:
-            gen_path = scs.converters.maxcut_to_quote(rel_root_path)
+            gen_path = scs.conv.maxcut_to_quote(rel_root_path)
         print(f"gen_path: {gen_path}")
         print(f"gen_path type: {type(gen_path)}")
         
