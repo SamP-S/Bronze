@@ -10,7 +10,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 
-def gmail_create_draft(creds: Credentials, sender:str, receiver:str, subject:str, msg:str):
+def DraftEmail(creds: Credentials, sender:str, receiver:str, subject:str, msg:str):
     """Create and insert a draft email.
     Print the returned draft's message and id.
     Returns: Draft object, including draft id and message meta data.
@@ -51,7 +51,7 @@ def gmail_create_draft(creds: Credentials, sender:str, receiver:str, subject:str
 
 
 
-def gmail_send_message(creds: Credentials, sender:str, receiver:str, subject:str, msg:str):
+def SendEmail(creds: Credentials, sender:str, receiver:str, subject:str, msg:str):
     """Create and send an email message
     Print the message object
     Returns: Message object, including message id
