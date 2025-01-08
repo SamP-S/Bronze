@@ -39,8 +39,16 @@ print(df)
 print(df.shape)
 
 if df.shape[0] <= 0:
-    print("INFO: No reminders to send. Exiting...")
+    print("INFO: No reminders to send. Good Job. Exiting...")
     exit()
+    
+def days_to_emoji(days):
+    if days <= 0:
+        return "🔴"
+    elif days <= 1:
+        return "🟡"
+    else:
+        return "🟢"
 
 # msg = "Hi,\n\nThe following tenders are closing <b>soon</b>:\n\n"
 # for index, row in df.iterrows():
@@ -51,7 +59,7 @@ if df.shape[0] <= 0:
 msg = "Hi,\n\nThe following tenders are closing **soon**:\n\n"
 for index, row in df.iterrows():
     days_left = (row["Tender Closing Date"] - pd.Timestamp(today)).days
-    msg += f"{row["Contractor"]}  @  {row["Project Address"]}: \t{days_left} days.\n"
+    msg += f"{row["Contractor"]}  @  {row["Project Address"]}: \t{days_to_emoji(days_left)} {days_left} days.\n"
 msg += "\n\n Send Quotes ASAP.\n"
 
 scs.google.gmail.SendEmail(

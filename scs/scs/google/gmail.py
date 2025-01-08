@@ -19,7 +19,10 @@ def DraftEmail(creds: Credentials, sender:str, receiver:str, subject:str, msg:st
     TODO(developer) - See https://developers.google.com/identity
     for guides on implementing OAuth2 for the application.
     """
-     
+    
+    if not sender.endswith("@southcoaststone.com"):
+        print("ERROR: Sender email must be from southcoaststone.com to make a draft.")
+        return None
 
     try:
         # create gmail api client
@@ -60,6 +63,14 @@ def SendEmail(creds: Credentials, sender:str, receiver:str, subject:str, msg:str
     TODO(developer) - See https://developers.google.com/identity
     for guides on implementing OAuth2 for the application.
     """
+    
+    if not sender.endswith("@southcoaststone.com"):
+        print("ERROR: Sender email must be from southcoaststone.com to send and email.")
+        return None
+    
+    if not receiver.endswith("@southcoaststone.com"):
+        print("ERROR: Receiver email must be from southcoaststone.com to prevent spam.")
+        return None
 
     try:
         service = build("gmail", "v1", credentials=creds)
