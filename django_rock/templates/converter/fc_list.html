@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+    <h1>Quote File List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quote File</th>
+                <th>Notes</th>
+                <th>Upload Date</th>
+                <th>Warnings</th>
+                <th>Generated File</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fc in fcs %}
+            <tr>
+                <td>{{ fc.id }}</td>
+                <td>{{ fc.upload_file.name }}</td>
+                <td>{{ fc.notes }}</td>
+                <td>{{ fc.created_at }}</td>
+                <td>{{ fc.warnings }}</td>
+                <td>{{ fc.gen_file.name|default_if_none:"" }}</td>
+                <td>
+                    {% if fc.gen_file %}
+                        <a href="{{ fc.gen_file.url }}" download="{{ fc.filename }}">Download</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'fc_delete' fc.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'fc_create' %}">Add New Quote File</a>
+</center>
+{% endblock %}
