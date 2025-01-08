@@ -65,12 +65,12 @@ class FCCreateView(CreateView):
     def form_valid(self, form):
         obj = form.save(commit=False)
         
-        ori_path = os.path.join("fc", obj.q_file.name)
+        ori_path = os.path.join("fc", obj.upload_file.name)
         print(f"original path = {ori_path}")
         obj.filename = os.path.basename(ori_path).replace(".xlsx", ".zip")
         
         new_path, ori_filename = get_valid_upload_path(ori_path)
-        obj.q_file.name = new_path
+        obj.upload_file.name = new_path
         
         # must save first to force uploaded file to download
         obj.save()
@@ -82,7 +82,12 @@ class FCCreateView(CreateView):
         
         print(f"path: {rel_root_path}")
         # TODO: apply conversion here according to selected
-        gen_path = scs.converters.quote_to_maxcut(rel_root_path)
+        # TODO: replace if-switch with dictionary look up
+        gen_path = None
+        if obj.conversion == "quote_xl_to_maxcut_zip":
+            gen_path = scs.converters.quote_to_maxcut(rel_root_path)
+        else:
+            gen_path = scs.converters.maxcut_to_quote(rel_root_path)
         print(f"gen_path: {gen_path}")
         print(f"gen_path type: {type(gen_path)}")
         

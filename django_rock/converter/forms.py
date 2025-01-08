@@ -2,6 +2,7 @@ from django import forms
 
 from .models import FileConvertModel
 
+# replace Model form with custom form for much nicer looking and more intuitive
 class FileConvertForm(forms.ModelForm):
     class Meta:
         model = FileConvertModel
