@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'hello_world',
     'boq_assistant',
     'quote_manager',
+    'converter',
 ]
 
 MIDDLEWARE = [

@@ -46,17 +46,17 @@ def get_valid_upload_path(path):
 # --- QuoteFile Views
 class FCListView(ListView):
     model = FileConvertModel
-    template_name = "boq_assistant/fc_list.html"
+    template_name = "converter/fc_list.html"
     context_object_name = "fcs"
     
 class FCDetailView(DetailView):
     model = FileConvertModel
-    template_name = "boq_assistant/fc_detail.html"
+    template_name = "converter/fc_detail.html"
     
 class FCCreateView(CreateView):
     model = FileConvertModel
     form_class = FileConvertForm
-    template_name = "boq_assistant/fc_create.html"
+    template_name = "converter/fc_create.html"
     success_url = reverse_lazy("fc_list")
     
     ### TODO: implement file path validation to ensure existing files dont get deleted
@@ -81,6 +81,7 @@ class FCCreateView(CreateView):
         print(f"list dirs:\n {os.listdir(os.path.dirname(rel_root_path))}")
         
         print(f"path: {rel_root_path}")
+        # TODO: apply conversion here according to selected
         gen_path = scs.converters.quote_to_maxcut(rel_root_path)
         print(f"gen_path: {gen_path}")
         print(f"gen_path type: {type(gen_path)}")
@@ -99,7 +100,7 @@ class FCCreateView(CreateView):
     
 class FCDeleteView(DeleteView):
     model = FileConvertModel
-    template_name = "boq_assistant/fc_delete.html"
+    template_name = "converter/fc_delete.html"
     success_url = reverse_lazy("fc_list")
     
 
