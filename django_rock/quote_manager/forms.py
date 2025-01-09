@@ -1,13 +1,16 @@
 from django import forms
-from .models import ProjectModel, QuoteRequestModel
+from .models import ProjectModel, QuoteModel
 
 class ProjectForm(forms.ModelForm):
-
+    
     class Meta:
         model = ProjectModel
-        fields = ['address', 'postcode', 'work_type', 'value', 'contract_type']
+        fields = ['address', 'postcode', 'work_type', 'contract_type', 'value', 'estimater', 'manager']
 
-class QuoteRequestForm(forms.ModelForm):
+
+
+class QuoteForm(forms.ModelForm):
+    
     class Meta:
-        model = QuoteRequestModel
-        fields = ['company', 'date_in', 'date_close', 'date_sent', 'contact_name', 'contact_email', 'contact_phone', 'state', 'state_updated_at',]
+        model = QuoteModel
+        fields = ['company', 'date_in', 'date_close', 'date_sent', 'buisness_by', 'contact_name', 'contact_email', 'contact_phone', 'state', 'state_updated_at',]

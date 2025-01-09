@@ -3,11 +3,38 @@
     <h1>Create Quote Request</h1>
     <form method="post">
         {% csrf_token %}
-        <h2>Project Information</h2>
-        {{ project_form.as_p }}
+        {% comment %} <h2>Form</h2>
+        {{ form.as_p }} {% endcomment %}
+
+        <h2>Project Select/Create:</h2>
+        <select id="project-select" name="project">
+            <option value="">Create New Project</option>
+            {% for project in project_list %}
+                <option value="{{ project.id }}">{{ project.address }} ({{ project.id }})</option>
+            {% endfor %}
+        </select>
         
-        <h2>Quote Request Information</h2>
-        {{ quote_request_form.as_p }}
+        <div id="project-form" style="display: none;">
+            {{ project_form.as_p }}
+        </div>
+
+        <h2>Quote Form:</h2>
+        {{ quote_form.as_p }}
         <button type="submit">Submit</button>
     </form>
+    <script>
+        function check_project_select() {
+            console.log("check_project_select");
+            var projectSelect = document.getElementById('project-select');
+            var projectForm = document.getElementById('project-form');
+            if (projectSelect.value === "") {
+                projectForm.style.display = 'block';
+            } else {
+                projectForm.style.display = 'none';
+            }
+        }
+
+        document.getElementById('project-select').addEventListener('change', check_project_select);
+        check_project_select();
+    </script>
 {% endblock %}

@@ -30,7 +30,13 @@ class ProjectModel(models.Model):
         default="unknown",
     )
     
+    # optional
+    # TODO: consider replacing with custom user model
+    estimater = models.ForeignKey("auth.User", on_delete=models.SET_NULL, null=True, blank=True, related_name="project_estimater")
+    manager = models.ForeignKey("auth.User", on_delete=models.SET_NULL, null=True, blank=True, related_name="project_manager")
+    
     # generated
+    # TODO: add a created by to track who filled in the new quote
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     attractiveness = models.IntegerField(blank=True, null=True)
@@ -42,7 +48,7 @@ class ProjectModel(models.Model):
 # currently company is dumped in the quote request as the only unique company info is the name
 # not ideal but otherwise you have a dumb model
     
-class QuoteRequestModel(models.Model):
+class QuoteModel(models.Model):
     # blank allows for empty strings or default values to be used
     # null allows for not setting a value
     
@@ -50,6 +56,7 @@ class QuoteRequestModel(models.Model):
     # on_delete=models.CASCADE means that if the project is deleted, the quote request is also deleted
     
     # required
+    # TODO: add a created by to track who filled in the quote
     project = models.ForeignKey(ProjectModel, on_delete=models.CASCADE)
     company = models.CharField(max_length=255, blank=False, null=False)
     contact_name = models.CharField(max_length=255, blank=False, null=False)
@@ -65,17 +72,23 @@ class QuoteRequestModel(models.Model):
         ("sent", "Sent"),
         ("to_chase", "To Chase"),
     ]
-    state = models.CharField(max_length=255, default="unknown", blank=False, null=False)
+    state = models.CharField(max_length=255, choices=QUOTE_STATE_CHOICES, default="unknown", blank=False, null=False)
     state_updated_at = models.DateTimeField(blank=True, null=True)
     
     # optional
     contact_phone = models.CharField(max_length=16, blank=True, null=True)
     date_close = models.DateField(blank=True, null=True)
     date_sent = models.DateField(blank=True, null=True)
+    BUISNESS_BY_CHOICES = [
+        ("karl", "Karl"),
+        ("scs", "SCS"),
+    ]
+    buisness_by = models.CharField(max_length=255, choices=BUISNESS_BY_CHOICES, blank=True, null=True)
     
     # generated
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
     
 
 class ProjectBlacklist(models.Model):
@@ -87,6 +100,10 @@ class ProjectBlacklist(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return f"Project Blacklist ({self.id}) - {self.project.address} ({self.project.id})"
+    
+    
 
 class CompanyBlacklist(models.Model):
     # required
@@ -97,4 +114,6 @@ class CompanyBlacklist(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return f"Company Blacklist ({self.id}) - {self.company}"
     
