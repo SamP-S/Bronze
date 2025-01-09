@@ -37,7 +37,10 @@ class ProjectModel(models.Model):
     multiplier = models.IntegerField(blank=True, null=True)
     chasability = models.IntegerField(blank=True, null=True)
     last_reminder_at = models.DateTimeField(blank=True, null=True)
-    
+
+### NOTE:
+# currently company is dumped in the quote request as the only unique company info is the name
+# not ideal but otherwise you have a dumb model
     
 class QuoteRequestModel(models.Model):
     # blank allows for empty strings or default values to be used
@@ -60,10 +63,10 @@ class QuoteRequestModel(models.Model):
         ("waiting_for_supplier", "Waiting for supplier"),
         ("waiting_for_client", "Waiting for client"),
         ("sent", "Sent"),
-        ("to_chase", "To chase"),
+        ("to_chase", "To Chase"),
     ]
     state = models.CharField(max_length=255, default="unknown", blank=False, null=False)
-    state_updated_at = models.DateTimeField(blank=False, null=False)
+    state_updated_at = models.DateTimeField(blank=True, null=True)
     
     # optional
     contact_phone = models.CharField(max_length=16, blank=True, null=True)
@@ -73,3 +76,25 @@ class QuoteRequestModel(models.Model):
     # generated
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+
+class ProjectBlacklist(models.Model):
+    # required
+    project = models.ForeignKey(ProjectModel, on_delete=models.CASCADE)
+    reason = models.CharField(max_length=255, blank=False, null=False)
+    
+    # generated
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+
+class CompanyBlacklist(models.Model):
+    # required
+    company = models.CharField(max_length=255, blank=False, null=False)
+    reason = models.CharField(max_length=255, blank=False, null=False)
+    
+    # generated
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    

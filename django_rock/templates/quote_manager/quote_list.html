@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for quote in quotes %}
+            {% for quote in quote_list %}
                 <tr>
                     <td>{{ quote.company }}</td>
                     <td>{{ quote.contact_name }}</td>
@@ -31,10 +31,9 @@
                     <td>{{ quote.date_sent|default_if_none:"" }}</td>
                     <td>{{ quote.project.address|default_if_none:"" }}</td>
                     <td>{{ quote.project.postcode|default_if_none:"" }}</td>
-                    <td>{{ quote.project.in_london|yesno:"Yes,No" }}</td>
-                    <td>{{ quote.project.get_work_type_display|default_if_none:"" }}</td>
+                    <td>{{ quote.project.get_work_type|default_if_none:"" }}</td>
                     <td>{{ quote.project.value|default_if_none:"" }}</td>
-                    <td>{{ quote.project.get_contract_type_display|default_if_none:"" }}</td>
+                    <td>{{ quote.project.get_contract_type|default_if_none:"" }}</td>
                 </tr>
             {% endfor %}
         </tbody>
