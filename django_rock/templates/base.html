@@ -1,6 +1,8 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
+<!-- head is for meta data about the page, not anything shown to user -->
   <head>
     {% block title %}
     {% endblock %}
@@ -12,18 +14,70 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous">
     <!-- Add additional CSS in static file -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <nav>
-      <ul>
-        <li><a href="/"><img class="logo" src="{% static 'images/scs-logo.png' %}" alt="logo" /></a></li>
-        <li><a href="/admin/">Admin</a></li>
-        <li><a href="/conv/">File Converter</a></li>
-        <li><a href="/quotes/">Quotes</a></li>
-      </ul>
-    </nav>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />   
   </head>
+
   <body>
-    {% block content %}
-    {% endblock %}
+    <div id="header">
+      <nav>
+        <ul>
+          <li><a href="/"><img class="logo" src="{% static 'images/scs-logo.png' %}" alt="logo" /></a></li>
+          <li><a href="/admin/">Admin</a></li>
+          <li><a href="/conv/">File Converter</a></li>
+          <li><a href="/quotes/">Quotes</a></li>
+        </ul>
+      </nav>
+
+      {% block header %}
+  
+      {% if user.is_authenticated %}
+          Logged in: {{ user.username }}
+          <hr/>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">logout</button>
+          </form>
+          <hr/>
+          <a href="{% url 'password_change' %}">Change password</a>)
+      {% else %}
+         <a href="{% url 'login' %}">Log in</a>
+      {% endif %}
+      <hr/>
+      {% endblock %}
+    </div>
+
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div id="footer">
+      {% block footer %}
+          <hr />
+          <div class="footer-bottom">
+            <div class="container container-wide">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                      South Coast Stone, Inc. &copy; 2025
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-3">
+                      Email:&nbsp;<a href="mailto:info@Southcoaststone.com">info@southcoaststone.com </a><br>
+                      Call:&nbsp;<a href="tel:01202 677188">01202 677188</a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+                      <p>Modular Granite Limited<br>
+                      Company number: 05220945</p>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 madeby">Website Design &amp; Build:<br>
+                      <a href="https://www.github.com/SamP-S" target="_blank">Github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% endblock %}
+      </div>
   </body>
 </html>

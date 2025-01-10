@@ -1,3 +1,6 @@
 [submodule "examples/django-funky-sheets"]
 	path = examples/django-funky-sheets
 	url = git@github.com:trco/django-funky-sheets.git
+[submodule "examples/django-registration-templates"]
+	path = examples/django-registration-templates
+	url = git@github.com:macdhuibh/django-registration-templates.git
