@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.http import HttpResponse, Http404
 from django.conf import settings
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 from .models import QuoteModel, ProjectModel, ProjectBlacklist, CompanyBlacklist
 from .forms import ProjectForm, QuoteForm
@@ -35,7 +36,13 @@ def create_project_and_quote_request(request):
         'project_form': project_form,
         'quote_form': quote_form
     })
-        
+
+@login_required
+def list_claimed_request(request, *args, **kwargs):
+    return render(request, 'quote_manager/quote_list.html', {
+        'quote_list': QuoteModel.objects.filter(project__estimater=request.user)
+    })
+    
 
 class BacklogListView(ListView):
     model = QuoteModel

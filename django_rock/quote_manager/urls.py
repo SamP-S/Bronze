@@ -11,4 +11,5 @@ urlpatterns = [
     
     # backlog
     path('backlog/', BacklogListView.as_view(), name="quote_backlog"),
+    path('claimed/', list_claimed_request, name="quote_claimed"),
 ]
